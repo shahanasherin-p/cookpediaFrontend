@@ -7,7 +7,7 @@ import { RecipeModel } from '../admin/model/recipeModel';
 })
 export class ApiService {
 
-  server_url="http://localhost:3000"
+  server_url="https://cookpediaserver-rhcy.onrender.com"
 
   constructor(private http:HttpClient) { }
 

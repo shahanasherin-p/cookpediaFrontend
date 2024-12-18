@@ -9,13 +9,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { SavedRecipeComponent } from './saved-recipe/saved-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { PnfComponent } from './pnf/pnf.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     // lazy loaded admin module
     {
-        path:'admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
+        path:'admin', canActivate:[authGuard],loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
     },
-
 
     {
         path:"",component:HomeComponent,title:"Home"
@@ -36,13 +36,13 @@ export const routes: Routes = [
         path:"all-recipes",component:RecipesComponent,title:"all-Recipes"
     },
     {
-        path:"profile",component:ProfileComponent,title:"Profile"
+        path:"profile",canActivate:[authGuard],component:ProfileComponent,title:"Profile"
     },
     {
-        path:"save-recipe",component:SavedRecipeComponent,title:"Save Recipes Collection"
+        path:"save-recipe",canActivate:[authGuard],component:SavedRecipeComponent,title:"Save Recipes Collection"
     },
     {
-        path:"recipe/:id/view",component:ViewRecipeComponent,title:"View Recipe"
+        path:"recipe/:id/view",canActivate:[authGuard],component:ViewRecipeComponent,title:"View Recipe"
     },
     {
         path:"**",component:PnfComponent,title:"Page Note Found"
