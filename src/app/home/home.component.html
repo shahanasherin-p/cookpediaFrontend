@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+
+<div class="container">
+    <div class="row p-3 bg-success">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 text-light">
+            <h1>The Easiest Way <br>
+            To Make Your <br>
+        Favorite Meal</h1>
+        <p style="text-align: justify;" class="my-4">Discover 100+ recipes in your hand with the best recipe.Help you to find the easiest way to cook</p>
+        <a roterLink="/all-recipes" style="background-color: green;" class="btn text-light">Explore Recipes</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="w-50 landingImg" style="margin-left: 150px;" src="https://png.pngtree.com/png-clipart/20230427/original/pngtree-food-simple-breakfast-png-image_9114259.png " alt="">
+        </div>
+    </div>
+
+    <div class="my-5 py-5">
+        <h1>Popular Recipe Of The Week</h1>
+        <div class="d-flex justify-content-between">
+        <p>Our Most Popular recipes of the week</p>
+        <a routerLink="/all-recipes">View All</a>
+        </div>
+        <div class="row my-3">
+            @for (recipe of allRecipes; track $index) {
+                <div class="col-lg-4">
+                    <div class="p-3">
+                        <img class="card-img-top" [src]="recipe.image" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{recipe.name}}</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    
+    <div style="height: 400px; background-image: url('https://img.freepik.com/free-photo/chinese-new-year-with-tea-pot-mandarines_23-2148738382.jpg?t=st=1733172400~exp=1733176000~hmac=f8133181c0c84265a42b98f837bec8a4451638d3e5b17f363b8e10cc3de62486&w=1060'); background-size: cover;" class="row align-items-center my-5">
+        <div class="col-lg-6"></div>
+        <div class="col-lg-6">
+            <div class="bg-light rounded p-3 w-75">
+                <h3>50+ Recipes That Very Quick And Fast</h3>
+                <p class="text-secondary mt-3">Find The Perfect Food Ideas to start your day with the quick and easiest way</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="height: 450px;" class="my-5 row align-items-center text-light bg-success rounded p-3">
+        <div class="col-lg-6"> 
+            <img height="350px" src="https://toppng.com/uploads/thumbnail/android-app-on-google-play-11568829115kt4gig8l67.png" alt="">
+        </div>
+        <div class="col-lg-6">
+            <h1>Download App</h1>
+            <h5 class="my-3">Download the App from App Store or <br> Google Play Store for a better Experience </h5>
+            <img width="150px" src="https://freepngimg.com/download/android/67006-app-play-google-android-store-free-clipart-hd.png" alt="">
+            <img width="150px" src="https://benic360.com/wp-content/uploads/2020/06/apple-store-icon-png-8.png" alt="">
+        </div>
+    </div>
+
+    <div class="text-center my-5">
+        <h1>Client Testimonals</h1>
+        <marquee >
+            <div class="d-flex my-5">
+                @for (item of allApprovedFeedbacks; track $index) {
+                    <div class="rounded border w-100 me-2 p-3">
+                    <h5>{{item.name}}</h5>
+                    <p style="white-space: normal; width: 100%; text-align: justify;">{{item.message}}</p>
+                
+                </div>
+
+                }
+            </div>
+        </marquee>
+    </div>
+
+</div>
+
+<app-footer></app-footer>

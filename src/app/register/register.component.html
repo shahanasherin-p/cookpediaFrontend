@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-around align-items-center flex-wrap" style="min-height: 100vh;">
+    <div class="shadow p-5 mt-5  rounded" style="width: 400px;">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <h2 class="fw-bolder mb-4"> <i class="fa-solid fa-graduation-cap"></i> Cookpedia</h2>
+            <div>
+                <input name="username" formControlName="username" type="text" class="form-control my-2" placeholder="Username"/>
+                @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+                    <div class="text-danger fw-bolder mb-3">*Invalid Username</div>
+                }
+                <input name="email" formControlName="email" type="email" class="form-control my-2" placeholder="Email"/>
+                @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+                    <div class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                }
+                <input name="password" formControlName="password" type="password" class="form-control my-2" placeholder="Password"/>
+                @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+                    <div class="text-danger fw-bolder mb-3">*Invalid Password</div>
+                }
+                <button type="submit" class="btn btn-success w-100 mt-3">Register</button>
+            </div>
+        </form>
+    </div>
+    <div class="mt-5" style="max-width: 300px;">
+       <h1>Create New Account</h1> 
+       <h6 class="fw-bolder">What you will get?</h6>
+       <ul class="mt-5">
+          <li>Different Recipes</li>
+          <li>Easy Way to make Recipe</li>
+          <li>Save Your Favorite Recipes</li>
+          <li>Download Recipes</li>
+       </ul>
+    </div>
+</div>
+<app-footer></app-footer>

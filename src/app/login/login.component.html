@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center align-items-center flex-column text-center" style="height: 100vh;">
+    <h1>Login</h1>
+    <p>More than 100 recipes from around the world</p>
+    <div class="shadow p-5 mt-5" style="width: 400px;">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" >
+            <h2 class="fw-bolder mb-4"> <i class="fa-solid fa-graduation-cap"></i> Cookpedia</h2>
+            <div>
+                <input name="email" formControlName="email" type="email" class="form-control my-2" placeholder="Email"/>
+                @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched){
+                    <div class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                }
+                <input name="password" formControlName="password" type="password" class="form-control my-2" placeholder="Password"/>
+                @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched){
+                    <div class="text-danger fw-bolder mb-3">*Invalid Password</div>
+                }
+                <button type="submit" class="btn btn-success w-100 mt-3">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>
